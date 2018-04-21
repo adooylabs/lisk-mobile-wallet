@@ -1,0 +1,3 @@
+rootProject.name = 'lisk_mobile_wallet'
+
+include ':app'
