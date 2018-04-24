@@ -12,9 +12,6 @@ class Dashboard extends Component {
   render() {
     const { params } = this.props.navigation.state;
     
-    // TODO: delete this on production
-    AsyncStorage.setItem('walletAddress', '');
-
     return (
       <View style={styles.container}>
         <Header navigate={this.props.navigation.navigate} />

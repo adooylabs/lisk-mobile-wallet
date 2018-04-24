@@ -2,36 +2,37 @@ import React, { Component } from 'react';
 import {
   Text,
   AsyncStorage,
-  View
+  View,
+  Button 
 } from 'react-native';
-import { Button } from 'nachos-ui';
 
 // TODO: this should be a sticky header
 class Header extends Component{
-  _handleLogout(){
-    AsyncStorage.setItem('walletAddress', '');
-    this.props.navigate('App');
-    console.log("should logout.");
+  _handleLogout = async () => {
+    await AsyncStorage.setItem('walletAddress', '');
+    this.props.navigate('Login');
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Button onPress={() => 
-          // TODO: add prop types validation
-          this.props.navigate('DrawerToggle')
-        }>
-          Menu
-        </Button>
+        <Button 
+          title="Menu"
+          onPress={() => 
+            // TODO: add prop types validation
+            this.props.navigate('DrawerToggle')
+          }
+        />
 
         // TODO: add logo
         <Text style={styles.welcome}>
           Lisk
         </Text>
 
-        <Button onPress={() => this._handleLogout() }>
-          Logout
-        </Button>
+        <Button 
+          title="logout" 
+          onPress={() => this._handleLogout()}
+        />
       </View>
     );
   }
@@ -39,10 +40,13 @@ class Header extends Component{
 
 const styles = {
   container: {
-    marginTop: 20,
-    height: 80,
+    paddingTop: 20,
+    paddingBottom: 0,
+    paddingLeft: 16,
+    paddingRight: 16,
+    height: 60,
     width: '100%',
-    backgroundColor: '#eeeeee',
+    backgroundColor: '#ffffff',
     flexDirection: 'row'
   },
   welcome: {

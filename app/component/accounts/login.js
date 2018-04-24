@@ -1,6 +1,8 @@
+// TODO: detect if offline to disable form
 import React, { Component } from 'react';
 import {
   View,
+  Text,
   StyleSheet,
   AsyncStorage
 } from 'react-native';
@@ -19,7 +21,6 @@ class Login extends Component {
 
   _handleLogin = async () => {
     await AsyncStorage.setItem('walletAddress',  this.state.address);
-
     if(this.state.address) {
       this.props.navigation.navigate('App');
     } else {
@@ -31,13 +32,14 @@ class Login extends Component {
     }
   };
 
-  _handleRegister = () => {
+  _handleRegister() {
     this.props.navigation.navigate('Generate');
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <Text>Sign In</Text>
         <Input
           style={styles.input}
           placeholder='Enter Your Wallet Address'
