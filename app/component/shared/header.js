@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import {
   Text,
+  AsyncStorage,
   View
 } from 'react-native';
 import { Button } from 'nachos-ui';
 
 // TODO: this should be a sticky header
 class Header extends Component{
+  _handleLogout(){
+    AsyncStorage.setItem('walletAddress', '');
+    this.props.navigate('App');
+    console.log("should logout.");
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -22,7 +29,7 @@ class Header extends Component{
           Lisk
         </Text>
 
-        <Button onPress={() => console.log('Logout') }>
+        <Button onPress={() => this._handleLogout() }>
           Logout
         </Button>
       </View>
@@ -35,7 +42,7 @@ const styles = {
     marginTop: 20,
     height: 80,
     width: '100%',
-    backgroundColor: 'green',
+    backgroundColor: '#eeeeee',
     flexDirection: 'row'
   },
   welcome: {

@@ -31,12 +31,6 @@ class Dashboard extends Component {
         }>
           Delegates
         </Button>
-
-        <Button onPress={() => 
-          this.props.navigation.navigate('Transactions')
-        }>
-          Delegates
-        </Button>
       </View>
     );
   }
