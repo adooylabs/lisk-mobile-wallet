@@ -7,9 +7,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "bignumber.js": "^6.0.0",
+    "i18next": "^11.2.3",
+    "i18next-localstorage-cache": "^1.1.1",
+    "i18next-xhr-backend": "^1.5.1",
     "lisk-js": "^0.5.1",
     "nachos-ui": "^0.1.2",
+    "moment": "^2.22.1",
     "react": "16.3.1",
+    "react-i18next": "^7.6.0",
     "react-native": "0.55.3",
     "react-navigation": "^1.5.11",
     "redux": "^4.0.0",
