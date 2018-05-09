@@ -22,12 +22,6 @@ class Dashboard extends Component {
         <Text style={styles.instructions}>
           { params && params.walletAddress }
         </Text>
-
-        <Button onPress={() => 
-          this.props.navigation.navigate('Delegates')
-        }>
-          Delegates
-        </Button>
       </View>
     );
   }

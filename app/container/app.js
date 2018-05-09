@@ -4,14 +4,19 @@ import {
   DrawerNavigator
 } from 'react-navigation';
 
+import { 
+  Wallet, 
+  Explorer,
+  Delegates,
+  Sidechains,
+} from '../component/pages';
+import {
+  Login,
+  Generate,
+  AccountList,
+  AuthLoading 
+} from '../component/accounts';
 import Dashboard from './dashboard';
-import Delegates from '../component/pages/delegates';
-import Wallet from '../component/pages/wallet';
-import Explorer from '../component/pages/explorer';
-import Sidechains from '../component/pages/sidechains';
-import Login from '../component/accounts/login';
-import Generate from '../component/accounts/generate';
-import AuthLoading from '../component/accounts/auth_loading';
 
 const AppStack = DrawerNavigator({ 
   Dashboard, 
@@ -21,23 +26,20 @@ const AppStack = DrawerNavigator({
 });
 
 const AuthStack = StackNavigator({ 
+  AccountList,  
   Login,
   Generate 
-  }, {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
+},{
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
   }
-);
+});
 
-export default SwitchNavigator(
-  {
-    AuthLoading: AuthLoading,
-    App: AppStack,
-    Auth: AuthStack,
-  },
-  {
-    initialRouteName: 'AuthLoading',
-  }
-);
+export default SwitchNavigator({
+  AuthLoading: AuthLoading,
+  App: AppStack,
+  Auth: AuthStack,
+},{
+  initialRouteName: 'AuthLoading',
+});
